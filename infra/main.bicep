@@ -1,6 +1,6 @@
 // Range Finder - Free-tier Static Web App, mirrors the pond-tracker layout.
-// Deploy: az deployment group create -g rg-rangefinder -f infra/main.bicep
-// Then:   az staticwebapp secrets list -n swa-rangefinder -g rg-rangefinder --query properties.apiKey -o tsv
+// Deploy: az deployment group create -g rg-range-finder -f infra/main.bicep
+// Then:   az staticwebapp secrets list -n swa-rangefinder -g rg-range-finder --query properties.apiKey -o tsv
 //         -> store as the GitHub Actions secret AZURE_STATIC_WEB_APPS_API_TOKEN
 targetScope = 'resourceGroup'
 
