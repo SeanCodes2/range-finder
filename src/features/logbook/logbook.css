@@ -1,0 +1,38 @@
+/* Logbook: shot groups, photos, conditions. Builds on styles.css primitives. */
+.log-cond { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.log-cond.set { color: var(--fg); }
+
+.sheet h2.log-subhead { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; }
+
+.log-session-head { gap: 12px; }
+.log-session-head h2 { font-size: 18px; text-transform: none; letter-spacing: 0; color: var(--fg); }
+.log-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); }
+.log-meta b { color: var(--fg); font-weight: 600; }
+
+.log-group { align-items: flex-start; }
+.log-group .title { display: flex; gap: 8px; align-items: baseline; white-space: normal; }
+.log-group .sub { line-height: 1.4; }
+.log-group .notes { font-size: 13px; color: var(--fg); white-space: pre-wrap; margin-top: 4px; }
+
+.log-thumb {
+  flex: none; width: 64px; height: 64px; padding: 0; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--panel-2); overflow: hidden; cursor: pointer;
+}
+.log-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.log-thumb:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.log-thumb.lg { width: 100%; height: auto; aspect-ratio: 4 / 3; max-height: 240px; }
+
+.log-photo-full { display: flex; justify-content: center; }
+.log-photo-full img { max-width: 100%; max-height: 72vh; border-radius: 10px; display: block; }
+
+.log-file { position: relative; display: inline-flex; }
+.log-file input[type="file"] { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
+
+.log-hint { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.log-hint b { color: var(--fg); font-family: var(--mono); font-weight: 600; }
+
+.log-err { color: var(--bad); font-size: 13px; }
+.log-ok { color: var(--good); font-size: 13px; }
+
+.log-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media (max-width: 360px) { .log-grid-3 { grid-template-columns: 1fr 1fr; } }
