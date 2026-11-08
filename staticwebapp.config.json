@@ -1,10 +1,64 @@
 {
   "$schema": "https://json.schemastore.org/staticwebapp.config.json",
-  "navigationFallback": { "rewrite": "/index.html", "exclude": ["/assets/*", "/*.{js,json,png,svg,ico,webmanifest,txt}"] },
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/assets/*",
+      "/*.{js,json,png,svg,ico,webmanifest,txt}",
+      "/login.html",
+      "/denied.html"
+    ]
+  },
   "routes": [
-    { "route": "/sw.js", "headers": { "Cache-Control": "no-cache" } },
-    { "route": "/index.html", "headers": { "Cache-Control": "no-cache" } },
-    { "route": "/assets/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } }
+    {
+      "route": "/sw.js",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "route": "/index.html",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "route": "/assets/*",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "route": "/api/health",
+      "allowedRoles": [
+        "anonymous",
+        "authenticated"
+      ]
+    },
+    {
+      "route": "/api/*",
+      "allowedRoles": [
+        "shooter"
+      ]
+    },
+    {
+      "route": "/login",
+      "redirect": "/login.html",
+      "statusCode": 302
+    },
+    {
+      "route": "/logout",
+      "redirect": "/.auth/logout?post_logout_redirect_uri=/login.html",
+      "statusCode": 302
+    },
+    {
+      "route": "/.auth/login/github",
+      "statusCode": 404
+    },
+    {
+      "route": "/.auth/login/twitter",
+      "statusCode": 404
+    }
   ],
   "globalHeaders": {
     "X-Content-Type-Options": "nosniff",
@@ -14,5 +68,9 @@
     "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
     "Content-Security-Policy": "default-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self' https://api.open-meteo.com; style-src 'self' 'unsafe-inline'; script-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'"
   },
-  "mimeTypes": { ".json": "application/json", ".svg": "image/svg+xml", ".webmanifest": "application/manifest+json" }
+  "mimeTypes": {
+    ".json": "application/json",
+    ".svg": "image/svg+xml",
+    ".webmanifest": "application/manifest+json"
+  }
 }

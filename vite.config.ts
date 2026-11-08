@@ -25,6 +25,7 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/\.auth\//, /^\/api\//, /\/(login|denied)\.html$/, /^\/logout$/, /^\/login$/],
         runtimeCaching: [
           { urlPattern: /^https:\/\/api\.open-meteo\.com\//, handler: 'NetworkFirst', options: { cacheName: 'weather', expiration: { maxAgeSeconds: 3600 } } },
         ],

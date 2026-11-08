@@ -27,7 +27,7 @@ export default function App() {
   const Page = TABS.find(t => t.id === tab)!.Page;
   return (
     <div className="shell">
-      <main className="shell-main"><Page /></main>
+      <main className="shell-main"><Page /><p className="small muted signout no-print"><a href="/logout">Sign out</a></p></main>
       <nav className="tabbar" aria-label="Sections">
         {TABS.map(t => (
           <button key={t.id} onClick={() => go(t.id)} aria-current={t.id === tab ? 'page' : undefined}>

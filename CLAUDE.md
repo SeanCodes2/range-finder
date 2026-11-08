@@ -15,3 +15,6 @@ Deployed to Azure Static Web Apps (Free) by the Azure-generated GitHub workflow 
 - Persist only through `db.ts`. Add new collections to `types.ts` Schema + `COLLECTIONS` in `db.ts` only if truly needed (bump DB_VERSION).
 - `npm run typecheck && npm run build` must pass. Pure logic (solvers, parsers) gets a vitest `*.test.ts` next to it.
 - CSP: only `https://api.open-meteo.com` is allowed for fetch. No other external hosts, no CDN scripts.
+
+## Access
+Invite-only via SWA built-in auth (Microsoft/`aad`), role `shooter`. Static files stay public; `src/app/access.ts` checks `/.auth/me` on launch (see comment there for why). `/api/*` is gated to `shooter` in `staticwebapp.config.json`. Invite users in the portal: Static Web App → Role management → Invite → role `shooter`. Local dev (`localhost`) skips the check.
