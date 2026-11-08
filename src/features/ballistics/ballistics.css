@@ -1,0 +1,32 @@
+/* Ballistics / Dope feature styles. Builds on primitives in app/styles.css. */
+.dope-head { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dope-head select { width: 100%; }
+
+.cond-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.cond-grid .input { padding: 8px 10px; }
+.cond-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+
+table.data.dope tr.stake td { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+table.data.dope tr.stake td:first-child { color: var(--accent); font-weight: 600; }
+table.data.dope td .sub { display: block; font-size: 11px; color: var(--muted); }
+table.data.dope td.elev { font-weight: 600; }
+table.data.dope td.wind.left { color: var(--good); }
+table.data.dope td.wind.right { color: var(--warn); }
+
+/* Dope card: compact, printable */
+.dope-card { background: #fff; color: #000; border-radius: var(--radius); padding: 12px 14px; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.dope-card h2 { color: #000; text-transform: none; letter-spacing: 0; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+.dope-card .dope-card-meta { font-size: 11px; color: #333; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; margin-bottom: 8px; font-family: var(--sans); }
+.dope-card table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.dope-card th, .dope-card td { padding: 3px 6px; text-align: right; border-bottom: 1px solid #ccc; white-space: nowrap; }
+.dope-card th:first-child, .dope-card td:first-child { text-align: left; }
+.dope-card th { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #333; border-bottom: 1px solid #000; font-family: var(--sans); }
+.dope-card tr.stake td { font-weight: 700; background: #f1f1f1; }
+.dope-card td.elev { font-weight: 700; }
+.dope-card .dope-card-foot { font-size: 10px; color: #555; margin-top: 8px; font-family: var(--sans); }
+
+@media print {
+  .dope-card { border-radius: 0; padding: 0; page-break-inside: avoid; }
+  .dope-card th, .dope-card td { padding: 2px 4px; }
+  .shell-main { padding: 0 !important; overflow: visible !important; }
+}
