@@ -1,0 +1,34 @@
+/* Gear tab: rifles + ammo. Builds on .panel/.list/.card/.pill from styles.css. */
+
+.list li.gear-item { cursor: pointer; align-items: flex-start; }
+.list li.gear-item:active { filter: brightness(1.15); }
+.list li.gear-item .pill { margin-top: 2px; }
+
+/* Barrel life bar */
+.barrel { display: flex; flex-direction: column; gap: 4px; }
+.barrel.compact { margin-top: 6px; }
+.barrel .progress.warn i { background: var(--warn); }
+.barrel .progress.bad i { background: var(--bad); }
+
+/* Big stat card (round count / on hand) */
+.gear-stat { align-items: center; }
+.gear-stat .label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.gear-stat .value { font-size: 40px; line-height: 1.05; font-weight: 600; letter-spacing: -.02em; }
+.gear-steppers { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.gear-steppers .btn { min-width: 56px; }
+
+/* Inline log forms inside the detail sheet */
+.gear-inline-form { flex-direction: column; align-items: stretch; gap: 10px; background: var(--panel-2); }
+
+/* Preset click-value chips */
+.gear-chip[aria-pressed="true"] { border-color: var(--accent); color: var(--fg); }
+
+/* Ammo summary strip */
+.gear-summary { flex-direction: row; gap: 12px; }
+.gear-summary-cell { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.gear-summary-cell .label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.gear-summary-cell .value { font-size: 28px; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; }
+
+.pill.gear-onhand.low { background: var(--bad); color: var(--accent-ink); }
+
+.gear-notes { white-space: pre-wrap; line-height: 1.4; }
